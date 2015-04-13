@@ -1,0 +1,38 @@
+<%- include layouts/header.ejs %>
+<div class="container-fluid">
+	<% if (err) { %>
+	<div class="row-fluid">
+		<div class="col-md-8 alert alert-danger">
+				<%=err %>
+		</div>
+	</div>
+	<% } %>
+	<div class="row-fluid">
+		<div class="col-md-8 grid-header">
+				Login
+		</div>
+	</div>
+	<div class="row-fluid">
+		<form action="/admin/login/validate" method="post">
+			<div class="col-md-8">
+				<div class="form-group col-md-4">
+				    <label for="name">Username</label>
+				    <input type="text" class="form-control input-sm" name="username" id="username" placeholder="Username" required />
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group col-md-4">
+				    <label for="model">Password</label>
+				    <input type="password" class="form-control input-sm" name="userpass" id="userpass" placeholder="Password" required />
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group col-md-3">
+				    <input type="submit" class="btn btn-primary" id="login" value="Login" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- include layouts/footer.ejs %>

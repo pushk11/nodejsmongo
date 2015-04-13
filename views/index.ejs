@@ -1,0 +1,67 @@
+<%- include layouts/header.ejs %>
+<div class="container-fluid table-responsive">
+	<div class="row">
+		<div class="col-md-12">
+			<form action="/admin/device/search" method="post">
+				<div class="form-group col-md-4">
+				    <input type="text" class="form-control input-sm" name="keyword" id="keyword" placeholder="Keyword" value="<%= (keyword) ? keyword : '' %>" />
+				</div>
+				<div class="form-group col-md-8">
+					<button type="submit" class="btn btn-primary btn-sm" id="searchDevice">Search</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 row">
+			<div class="col-md-10 top-buffer">
+				<button type="button" class="btn btn-primary btn-sm" id="addDevice">Add Device</button>
+			</div>
+		</div>
+		<div class="col-md-12 row top-buffer">
+			<div class="col-md-2">
+				<strong>Reg ID</strong>
+			</div>
+			<div class="col-md-4">
+				<strong>Name/Model/OS</strong>
+			</div>
+			<div class="col-md-4">
+				<strong>Assigned To</strong>
+			</div>
+			<div class="col-md-2">
+
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<% if(data && data.length) {                     
+	          for(var i = 0;i < data.length;i++) { %>
+	          <div class="col-md-12 row top-buffer">
+					<div class="col-md-2">
+						<a href="/admin/edit/<%=data[i]._id %>" id="edit" class="text-primary"><%=data[i].reg_id %></a>
+					</div>
+					<div class="col-md-4">
+						<%= ((data[i].name) ? data[i].name : '-') %> / <%= ((data[i].model) ? data[i].model : '-') %> / <%= ((data[i].os) ? data[i].os  : '-') %>
+					</div>
+					<div class="col-md-4">
+						<span><%=data[i].assigned_to %></span>
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="close" data-id="<%=data[i]._id %>" id="deleteDevice">&times;</button>
+					</div>
+			  </div>
+		<% 
+			}
+		} else { %>
+			<div class="col-md-12 row top-buffer">
+				<div class="col-md-8">
+						No Record Found
+				</div>
+			</div>
+		<% 
+		}
+		%>
+	</div>
+</div>
+
+<%- include layouts/footer.ejs %>

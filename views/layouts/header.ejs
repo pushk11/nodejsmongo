@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Device Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		 <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+		<link href="/../css/style.css" rel="stylesheet" />
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<script src="/../js/adm_front.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+	       <div class="masthead">
+	        	<h3 class="text-muted">Device Management</h3>
+	        <nav>
+	          <ul class="nav nav-justified navbar-default" role="navigation">
+	            <li class="active"><a href="/admin">Devices</a></li>
+	            <li><% if (tab != 'undefined' && tab == 'login') { %>
+	            	<a href="/admin/login">Login</a>
+	            	<%  } else { %>
+	            	<a href="/admin/logout">Logout</a>
+	            	<% } %>
+	            	</li>
+	          </ul>
+	        </nav>
+	      </div>
+	      <div class="row header">

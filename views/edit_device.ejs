@@ -1,0 +1,71 @@
+<%- include layouts/header.ejs %>
+<% 
+	if(err) {
+%>
+	<div class="row alert alert-danger top-buffer">
+		<div class="col-md-10">
+				<%=err%>
+		</div>
+	</div>
+<% 
+	}
+%>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-md-10 grid-header">
+				Edit Device Info
+		</div>
+	</div>
+	<div class="row-fluid">
+		<form action="/admin/edit/save" method="post">
+		<input type="hidden" name="id" id="id" value="<%=data._id%>" />
+			<div class="col-md-12">
+				<div class="form-group col-md-6">
+				    <label for="name">Registration ID</label>
+				    <input type="text" class="form-control input-sm" name="reg_id" id="reg_id" placeholder="Enter registration ID of device" value="<%=data.reg_id%>" required />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group col-md-6">
+				    <label for="name">Name</label>
+				    <input type="text" class="form-control input-sm" name="name" id="name" placeholder="Enter name of device" value="<%=data.name%>" />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group col-md-6">
+				    <label for="model">Model</label>
+				    <input type="text" class="form-control input-sm" name="model" id="model" placeholder="Enter model"  value="<%=data.model%>"  />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group col-md-6">
+				    <label for="os">OS</label>
+				    <input type="text" class="form-control input-sm" name="os" id="os" placeholder="Enter OS"  value="<%=data.os%>"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group col-md-6">
+				    <label for="version">Version</label>
+				    <input type="text" class="form-control input-sm" name="version" id="version" placeholder="Enter version"  value="<%=data.version%>" />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group col-md-6">
+				    <label for="assigned_to">Assigned To</label>
+				    <input type="email" class="form-control input-sm" name="assigned_to" id="assigned_to" placeholder="Enter User assigned To" value="<%=data.assigned_to%>" required />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group col-md-3">
+				    <input type="submit" class="btn btn-primary" id="saveDevice" value="Save" />
+				</div>
+				<div class="form-group col-md-3">
+				    <button type="button" class="btn btn-danger" id="cancelAdd">Cancel</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- include layouts/footer.ejs %>
